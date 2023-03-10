@@ -1,0 +1,15 @@
+---
+import films from "../../data/films.json";
+
+export function getStaticPaths() {
+  return films.map((film) => ({
+    params: {
+      slug: film.slug,
+    },
+  }));
+}
+
+const { slug } = Astro.params;
+---
+
+<div>{slug}</div>
