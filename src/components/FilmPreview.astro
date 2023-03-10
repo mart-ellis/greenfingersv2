@@ -29,6 +29,11 @@ const index = Astro.props.index;
     position: relative;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
   .focus {
     --size: 2rem;
     width: var(--size);
@@ -62,11 +67,6 @@ const index = Astro.props.index;
     left: 1rem;
     border-bottom: 1px solid;
     border-left: 1px solid;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
   }
 
   .details {
