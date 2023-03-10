@@ -32,6 +32,14 @@ const index = Astro.props.index;
   img {
     max-width: 100%;
     height: auto;
+    filter: grayscale(1);
+    transition: filter 0.3s ease-in-out;
+  }
+
+  img:hover,
+  img:focus,
+  img:active {
+    filter: grayscale(0);
   }
 
   .focus {
@@ -90,5 +98,6 @@ const index = Astro.props.index;
     text-transform: uppercase;
     line-height: 0.8;
     font-weight: 900;
+    opacity: 0.8;
   }
 </style>
