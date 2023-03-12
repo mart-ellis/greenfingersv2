@@ -26,21 +26,19 @@ import films from "../data/films.json";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    let previews = gsap.utils.toArray(".film-preview");
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
+  let previews = gsap.utils.toArray(".film-preview");
 
-    previews.forEach((preview) => {
-      gsap.to(preview, {
-        keyframes: [{ filter: "grayscale(0)" }, { filter: "grayscale(1)" }],
-        scrollTrigger: {
-          trigger: preview,
-          start: "top 90%",
-          end: "bottom 20%",
-          scrub: true,
-          markers: true,
-        },
-      });
+  previews.forEach((preview) => {
+    gsap.to(preview, {
+      keyframes: [{ filter: "grayscale(0)" }, { filter: "grayscale(1)" }],
+      scrollTrigger: {
+        trigger: preview,
+        start: "top 90%",
+        end: "bottom 20%",
+        scrub: true,
+        markers: true,
+      },
     });
   });
 </script>
