@@ -23,21 +23,71 @@ export default function Modal({ name, picture, bio, children }) {
           {children}
         </button>
       </div>
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)} class="dialog">
-        <div class="dialog-container">
-          <Dialog.Panel className="w-full max-w-sm rounded bg-neutral-900 opacity-100 text-primary px-5 py-4 text-sm">
-            <div className="max-w-full aspect-square overflow-hidden">
+      <Dialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        style={{ position: "relative", zIndex: 50 }}
+      >
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            display: "grid",
+            placeItems: "center",
+            background: "rgba(0,0,0,0.7)",
+            padding: "1rem 2rem",
+          }}
+        >
+          <Dialog.Panel
+            style={{
+              width: "100%",
+              maxWidth: "90%",
+              borderRadius: ".5rem",
+              background: "var(--black)",
+              text: "var(--mint)",
+              padding: ".9rem",
+              fontSize: ".8rem",
+              lineHeight: 1.4,
+              textAlign: "justify",
+            }}
+          >
+            <div
+              style={{
+                maxWidth: "100%",
+                aspectRatio: "1 / 1",
+                overflow: "hidden",
+                borderRadius: ".3rem",
+              }}
+            >
               {children}
             </div>
-            <Dialog.Title className="text-6xl uppercase font-humane mt-2">
+            <Dialog.Title
+              style={{
+                fontSize: "4rem",
+                textTransform: "uppercase",
+                fontFamily: "var(--humane)",
+                marginTop: "1rem",
+                lineHeight: 1,
+              }}
+            >
               {name}
             </Dialog.Title>
             <Dialog.Description></Dialog.Description>
 
-            <p className="text-xs text-justify leading-5">{bio}</p>
+            <p>{bio}</p>
 
             <button
-              className="w-full bg-primary mt-4 uppercase text-custom-black py-2 text-xs"
+              style={{
+                width: "100%",
+                background: "var(--mint)",
+                textTransform: "uppercase",
+                color: "var(--black)",
+                padding: ".6rem 0",
+                fontSize: ".8rem",
+                marginTop: ".6rem",
+                outline: "none",
+                border: "none",
+              }}
               onClick={() => setIsOpen(false)}
             >
               Close
