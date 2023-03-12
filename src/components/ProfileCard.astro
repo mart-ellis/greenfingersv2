@@ -1,0 +1,46 @@
+---
+import { Image, Picture } from "@astrojs/image/components";
+import Modal from "./Modal";
+
+const { name, picture, bio } = Astro.props.person;
+---
+
+<div class="grid-item">
+  <Modal name={name} picture={picture} bio={bio} client:load>
+    <Image
+      src={picture}
+      alt={`Profile picture of ${name} from Greenfingers Films`}
+      format="webp"
+      width={390}
+      height={425}
+    />
+  </Modal>
+  <h3>
+    {name}
+  </h3>
+</div>
+
+<style>
+  .grid-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  img {
+    /* border-radius: 0.05rem; */
+  }
+
+  h3 {
+    display: none;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    letter-spacing: var(--tracking-tight);
+    color: var(--mint);
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      display: initial;
+    }
+  }
+</style>
