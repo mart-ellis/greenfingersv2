@@ -2,10 +2,32 @@
 ---
 
 <header>
-  <div>
-    <a href="/">Greenfingers</a>
+  <div class="top">
+    <div>
+      <a href="/">Greenfingers</a>
+    </div>
+    <div>
+      <button class="hamburger">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="var(--mint)"
+          ><path fill="none" d="M0 0h24v24H0z"></path><path
+            d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path></svg
+        >
+      </button>
+    </div>
   </div>
-  <div></div>
+  <div class="bottom">
+    <div>
+      <h1>links</h1>
+      <h1>links</h1>
+      <h1>links</h1>
+      <h1>links</h1>
+    </div>
+  </div>
 </header>
 
 <!-- <header
@@ -69,10 +91,9 @@
 <style>
   header {
     --offset-x: 1rem;
+    --header-collapsed-height: 7vh;
+    --header-open-height: 40vh;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
     top: 0.8rem;
     background: var(--black);
@@ -80,15 +101,36 @@
     border-radius: 0.4rem;
     width: calc(100% - (var(--offset-x) * 2));
     left: var(--offset-x);
-    padding: 0.2rem 1.2rem;
+    padding: 0 1.2rem;
     z-index: 50;
+    transition: all 0.6s ease-in-out;
+    height: var(--header-collapsed-height);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
-  div:first-child {
-    width: 23%;
-    border-right: 1px solid rgb(39 39 42);
-    height: 100%;
-    padding: 0.5rem 0 0.3rem;
+  header.open {
+    height: var(--header-open-height);
+  }
+
+  .top {
+    width: 100%;
+    border: 2px solid blue;
+    min-height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    all: unset;
+    line-height: 0;
+    padding: 0.2rem 0 0.2rem 0.6rem;
+  }
+
+  button svg {
+    width: 1.2rem;
   }
 
   a {
@@ -99,4 +141,19 @@
     letter-spacing: 0.04rem;
     font-size: 1.5rem;
   }
+
+  .bottom {
+    border: 2px solid red;
+    width: 100%;
+    height: 100%;
+  }
 </style>
+
+<script>
+  const header = document.querySelector("header");
+  const hamburger = document.querySelector(".hamburger");
+
+  hamburger.addEventListener("click", () => {
+    header.classList.toggle("open");
+  });
+</script>
