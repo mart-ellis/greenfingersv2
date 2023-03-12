@@ -35,7 +35,7 @@ export default function Modal({ name, picture, bio, children }) {
             display: "grid",
             placeItems: "center",
             background: "rgba(0,0,0,0.7)",
-            padding: "1rem 2rem",
+            padding: "1rem 0",
           }}
         >
           <Dialog.Panel
@@ -84,7 +84,7 @@ export default function Modal({ name, picture, bio, children }) {
                 color: "var(--black)",
                 padding: ".6rem 0",
                 fontSize: ".8rem",
-                marginTop: ".6rem",
+                marginTop: "1.4rem",
                 outline: "none",
                 border: "none",
               }}
