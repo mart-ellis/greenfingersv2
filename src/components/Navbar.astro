@@ -1,10 +1,32 @@
 ---
+const currentPath = Astro.url.pathname;
+const filmsPage = currentPath.includes("films");
 ---
 
 <header class="collapsed">
   <div class="top">
     <div>
-      <a href="/">Greenfingers</a>
+      {
+        filmsPage ? (
+          <a class="back" href="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="var(--mint)"
+            >
+              <>
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
+              </>
+            </svg>
+            back to home
+          </a>
+        ) : (
+          <a href="/">Greenfingers</a>
+        )
+      }
     </div>
     <div>
       <button class="hamburger">
@@ -180,6 +202,21 @@
 
   header.collapsed {
     height: 66px;
+  }
+
+  .back {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-tight);
+    padding: 0.6rem 0.4rem 0.6rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .back svg {
+    width: 1rem;
+    margin-right: 0.2rem;
   }
 
   .top {

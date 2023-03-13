@@ -6,6 +6,9 @@ import Team from "../sections/Team.astro";
 ---
 
 <Layout title="Welcome to Astro.">
+  <div class="loader">
+    <h1 class="counter"></h1>
+  </div>
   <main>
     <Home />
     <Films />
@@ -13,4 +16,51 @@ import Team from "../sections/Team.astro";
   </main>
 </Layout>
 
-<style></style>
+<style>
+  .loader {
+    position: fixed;
+    inset: 0;
+    background: var(--dark-green);
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-family: var(--humane);
+    font-size: 25vw;
+    line-height: 0.7;
+    padding-right: 0.6rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  body {
+    position: fixed;
+  }
+</style>
+
+<script>
+  import { animate } from "motion";
+
+  const counter = document.querySelector(".counter");
+  const loader = document.querySelector(".loader");
+
+  animate(
+    (progress) => (counter.innerHTML = `${Math.round(progress * 100)}%`),
+    {
+      duration: 1.6,
+      easing: "ease-out",
+    }
+  ).finished.then(() => {
+    animate(
+      loader,
+      {
+        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+      },
+      {
+        delay: 0.4,
+        duration: 0.6,
+      }
+    ).finished.then(() => {
+      document.body.style.position = "initial";
+    });
+  });
+</script>
