@@ -66,4 +66,17 @@ import people from "../data/people.json";
     grid-template-columns: 1fr 1fr;
     gap: 0.3rem 0.5rem;
   }
+
+  @media (min-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0.6rem 0.8rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .team-grid {
+      border: 2px solid red;
+    }
+  }
 </style>

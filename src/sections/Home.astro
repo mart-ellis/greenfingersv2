@@ -81,13 +81,37 @@
     font-weight: 600;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
+    section {
+      padding: 20% var(--section-padding);
+    }
+
+    .title img {
+      width: 65vw;
+    }
+
     h1 {
       font-size: 36vw;
     }
 
     br {
       display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding: 25% var(--section-padding);
+    }
+
+    .title img {
+      width: 90vw;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    section {
+      padding: 10% var(--section-padding);
     }
   }
 </style>

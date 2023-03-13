@@ -179,9 +179,12 @@ const filmsPage = currentPath.includes("films");
 
 <style>
   header {
-    --offset-x: 1rem;
+    --offset-x: var(--section-padding);
 
     --gap: 6px;
+
+    --top-height: 54px;
+    --header-padding: 6px;
 
     position: fixed;
     top: 0.8rem;
@@ -190,7 +193,7 @@ const filmsPage = currentPath.includes("films");
     border-radius: 6px;
     width: calc(100% - (var(--offset-x) * 2));
     left: var(--offset-x);
-    padding: 6px;
+    padding: var(--header-padding);
     z-index: 50;
     transition: all 0.6s ease-in-out;
     display: flex;
@@ -200,8 +203,16 @@ const filmsPage = currentPath.includes("films");
     height: 35vh;
   }
 
+  @media (min-width: 1024px) {
+    header {
+      --top-height: 50px;
+      --header-padding: 4px;
+      --gap: 4px;
+    }
+  }
+
   header.collapsed {
-    height: 66px;
+    height: calc(var(--top-height) + var(--header-padding) * 2);
   }
 
   .back {
@@ -222,7 +233,7 @@ const filmsPage = currentPath.includes("films");
   .top {
     width: 100%;
     background: var(--black);
-    min-height: 54px;
+    min-height: var(--top-height);
     display: flex;
     border-radius: 3px;
     justify-content: space-between;
