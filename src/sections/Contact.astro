@@ -1,0 +1,40 @@
+---
+import Socials from "../components/Socials.astro";
+---
+
+<section>
+  <h3>Want to chat?</h3>
+  <p>Get in touch using the email below</p>
+  <div>
+    <a>greenfingersfilms@gmail.com</a>
+  </div>
+  <Socials />
+</section>
+
+<style>
+  section {
+    text-align: center;
+    margin-top: 6rem;
+  }
+
+  h3 {
+    font-family: var(--humane);
+    font-size: 25vw;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0.8;
+    line-height: 0.8;
+  }
+
+  p {
+    font-weight: 200;
+    font-size: 0.9rem;
+  }
+
+  div {
+    margin-top: 4rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+</style>
