@@ -7,9 +7,9 @@ import Team from "../sections/Team.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <div class="loader">
+  <!-- <div class="loader">
     <h1 class="counter"></h1>
-  </div>
+  </div> -->
   <main>
     <Home />
     <Films />
@@ -34,35 +34,35 @@ import Team from "../sections/Team.astro";
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 
-  body {
+  /* body {
     position: fixed;
-  }
+  } */
 </style>
 
 <script>
-  import { animate } from "motion";
+  // import { animate } from "motion";
 
-  const counter = document.querySelector(".counter");
-  const loader = document.querySelector(".loader");
+  // const counter = document.querySelector(".counter");
+  // const loader = document.querySelector(".loader");
 
-  animate(
-    (progress) => (counter.innerHTML = `${Math.round(progress * 100)}%`),
-    {
-      duration: 1.6,
-      easing: "ease-out",
-    }
-  ).finished.then(() => {
-    animate(
-      loader,
-      {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-      },
-      {
-        delay: 0.4,
-        duration: 0.6,
-      }
-    ).finished.then(() => {
-      document.body.style.position = "initial";
-    });
-  });
+  // animate(
+  //   (progress) => (counter.innerHTML = `${Math.round(progress * 100)}%`),
+  //   {
+  //     duration: 1.6,
+  //     easing: "ease-out",
+  //   }
+  // ).finished.then(() => {
+  //   animate(
+  //     loader,
+  //     {
+  //       clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+  //     },
+  //     {
+  //       delay: 0.4,
+  //       duration: 0.6,
+  //     }
+  //   ).finished.then(() => {
+  //     document.body.style.position = "initial";
+  //   });
+  // });
 </script>
