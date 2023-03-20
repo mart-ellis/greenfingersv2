@@ -4,26 +4,28 @@ const { title, year, img, slug } = Astro.props.film;
 const index = Astro.props.index;
 ---
 
-<a href={`/films/${slug}`}>
-  <div class="image-wrapper">
-    <div class="focus"></div>
-    <div class="focus"></div>
-    <div class="focus"></div>
-    <div class="focus"></div>
-    <Image
-      src={`/images/previews/${slug}.jpg`}
-      alt={`Still from ${title} by Greenfingers Films`}
-      format="webp"
-      width={475}
-      height={542}
-      class="film-preview"
-    />
-  </div>
-  <div class="details">
-    <p class="index">0{index + 1}</p>
-    <p class="title">{title}</p>
-  </div>
-</a>
+<div class="film-preview-container">
+  <a href={`/films/${slug}`}>
+    <div class="image-wrapper">
+      <div class="focus"></div>
+      <div class="focus"></div>
+      <div class="focus"></div>
+      <div class="focus"></div>
+      <Image
+        src={`/images/previews/${slug}.jpg`}
+        alt={`Still from ${title} by Greenfingers Films`}
+        format="webp"
+        width={475}
+        height={542}
+        class="film-preview"
+      />
+    </div>
+    <div class="details">
+      <p class="index">0{index + 1}</p>
+      <p class="title">{title}</p>
+    </div>
+  </a>
+</div>
 
 <style>
   .image-wrapper {
@@ -43,6 +45,7 @@ const index = Astro.props.index;
     mix-blend-mode: difference;
     opacity: 0.7;
     position: absolute;
+    z-index: 60;
   }
 
   .focus:nth-child(1) {

@@ -46,3 +46,28 @@ import films from "../data/films.json";
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = document.querySelectorAll(".film-preview-container");
+  cards.forEach((card) => {
+    const cardWidth = card.offsetWidth;
+    const distanceToEdge = card.getBoundingClientRect().left;
+    const rotate = gsap.utils.random(-9, 9);
+
+    gsap.from(card, {
+      x: -(distanceToEdge + cardWidth),
+      rotate: rotate,
+      scrollTrigger: {
+        trigger: card,
+        start: "top bottom",
+        end: "center center",
+        scrub: 1,
+      },
+    });
+  });
+</script>
