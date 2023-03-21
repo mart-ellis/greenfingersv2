@@ -1,15 +1,18 @@
 ---
+import Awards from "../components/Awards.astro";
 import ProfileCard from "../components/ProfileCard.astro";
 import Title from "../components/Title.astro";
 import people from "../data/people.json";
 ---
 
-<section>
+<section id="team">
   <Title>Meet the Fingers</Title>
-  <p>
-    Greenfingers is an internationally award-winning film collective based in
-    Manchester. Meet our members below.
-  </p>
+  <div class="subtitle">
+    <p>
+      Greenfingers is an internationally award-winning film collective based in
+      Manchester. Meet our members below.
+    </p>
+  </div>
   <div class="notif">
     <svg
       width="15"
@@ -27,6 +30,7 @@ import people from "../data/people.json";
   <div class="team-grid">
     {people.map((person) => <ProfileCard person={person} />)}
   </div>
+  <Awards nums={[4, 5, 6]} />
 </section>
 
 <style>
@@ -75,13 +79,24 @@ import people from "../data/people.json";
   @media (min-width: 768px) {
     .team-grid {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 0.6rem 0.8rem;
+      gap: 1.6rem;
     }
   }
 
   @media (min-width: 1024px) {
-    .team-grid {
-      border: 2px solid red;
+    .subtitle {
+      font-size: 1rem;
+      display: flex;
+      justify-content: flex-end;
+      max-width: 90vw;
+    }
+
+    .subtitle p {
+      margin-top: -3rem;
+      max-width: 40%;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 200;
     }
   }
 </style>

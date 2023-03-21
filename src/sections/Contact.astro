@@ -2,7 +2,7 @@
 import Socials from "../components/Socials.astro";
 ---
 
-<section>
+<section id="contact">
   <h3>Want to chat?</h3>
   <p>Get in touch using the email below</p>
   <div class="email-container">
@@ -35,134 +35,135 @@ import Socials from "../components/Socials.astro";
       </button>
     </div>
   </footer>
-</section>
 
-<style>
-  section {
-    text-align: center;
-    height: var(--contact-height);
-    padding-top: 100px;
-    background-color: white;
-    color: var(--dark-green);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: -10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  <style>
+    section {
+      text-align: center;
+      height: var(--contact-height);
+      padding-top: 100px;
+      background-color: white;
+      color: var(--dark-green);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: -10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  h3 {
-    font-family: var(--humane);
-    font-size: clamp(10vw, 28vw, 200px);
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 0.8;
-  }
+    h3 {
+      font-family: var(--humane);
+      font-size: clamp(10vw, 28vw, 200px);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 0.8;
+    }
 
-  p {
-    font-weight: 400;
-    font-size: 1rem;
-    /* text-transform: uppercase; */
-    opacity: 0.9;
-  }
+    p {
+      font-weight: 400;
+      font-size: 1rem;
+      /* text-transform: uppercase; */
+      opacity: 0.9;
+    }
 
-  .email-container {
-    margin-top: 4rem;
-    position: relative;
-  }
+    .email-container {
+      margin-top: 4rem;
+      position: relative;
+    }
 
-  .arrow-left {
-    width: 5rem;
-    position: absolute;
-    left: 0;
-    transform: translateX(-100%);
-    padding: 0.4rem 0.6rem 0 0;
-  }
+    .arrow-left {
+      width: 5rem;
+      position: absolute;
+      left: 0;
+      transform: translateX(-100%);
+      padding: 0.4rem 0.6rem 0 0;
+    }
 
-  .arrow-right {
-    width: 5rem;
-    position: absolute;
-    right: 0;
-    transform: translateX(100%);
-    padding: 0 0 0.4rem 0.6rem;
-  }
+    .arrow-right {
+      width: 5rem;
+      position: absolute;
+      right: 0;
+      transform: translateX(100%);
+      padding: 0 0 0.4rem 0.6rem;
+    }
 
-  .underline {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -0.2rem;
-  }
+    .underline {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+    }
 
-  a {
-    font-family: "Caveat", cursive;
-    text-decoration: none;
-    font-size: 1.7rem;
-    letter-spacing: var(--tracking-tight);
-  }
+    a {
+      font-family: "Caveat", cursive;
+      text-decoration: none;
+      font-size: 1.7rem;
+      letter-spacing: var(--tracking-tight);
+    }
 
-  .copy-button-container {
-    margin-top: 2rem;
-  }
+    .copy-button-container {
+      margin-top: 2rem;
+    }
 
-  button {
-    all: unset;
-    font-family: "Caveat", cursive;
-    position: relative;
-    cursor: pointer;
-  }
+    button {
+      all: unset;
+      font-family: "Caveat", cursive;
+      position: relative;
+      cursor: pointer;
+    }
 
-  button p {
-    font-size: 1.2rem;
-  }
+    button p {
+      font-size: 1.2rem;
+    }
 
-  button img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 7.4rem;
-    transform: translate(-50%, -50%);
-  }
+    button img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7.4rem;
+      transform: translate(-50%, -50%);
+    }
 
-  footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    padding: 0 var(--section-padding) 0.6rem;
-  }
+    footer {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      padding: 0 var(--section-padding) 0.6rem;
+    }
 
-  footer div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    footer div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0.6;
+    }
 
-  footer p {
-    font-size: 0.7rem;
-  }
+    footer p {
+      font-size: 0.7rem;
+    }
 
-  footer button {
-    all: unset;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-  }
+    footer button {
+      all: unset;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+    }
 
-  footer button svg {
-    width: 1rem;
-    margin-left: 0.2rem;
-  }
-</style>
+    footer button svg {
+      width: 1rem;
+      margin-left: 0.2rem;
+    }
+  </style>
 
-<script>
-  const toTop = document.querySelector(".to-top");
-  toTop.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  <script>
+    const toTop = document.querySelector(".to-top");
+    toTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
-  });
-</script>
+  </script>
+</section>

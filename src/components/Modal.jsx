@@ -41,7 +41,7 @@ export default function Modal({ name, picture, bio, children }) {
           <Dialog.Panel
             style={{
               width: "100%",
-              maxWidth: "90%",
+              maxWidth: "400px",
               borderRadius: ".5rem",
               background: "var(--black)",
               text: "var(--mint)",

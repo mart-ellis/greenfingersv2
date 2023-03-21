@@ -18,6 +18,7 @@ const { name, picture, bio } = Astro.props.person;
   <h3>
     {name}
   </h3>
+  <p>{bio}</p>
 </div>
 
 <style>
@@ -33,14 +34,27 @@ const { name, picture, bio } = Astro.props.person;
   h3 {
     display: none;
     margin-top: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.8;
     letter-spacing: var(--tracking-tight);
     color: var(--mint);
+  }
+
+  p {
+    display: none;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    text-align: justify;
   }
 
   @media (min-width: 1024px) {
     h3 {
       display: initial;
+    }
+
+    img {
+      border-radius: 0.6rem;
     }
   }
 </style>

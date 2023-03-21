@@ -1,14 +1,16 @@
 ---
+import Awards from "../components/Awards.astro";
 import FilmPreview from "../components/FilmPreview.astro";
 import Title from "../components/Title.astro";
 import films from "../data/films.json";
 ---
 
-<section>
+<section id="films">
   <Title>Our Recent Films</Title>
   <div>
     {films.map((film, index) => <FilmPreview film={film} index={index} />)}
   </div>
+  <Awards nums={[1, 2, 3]} />
 </section>
 
 <style>
