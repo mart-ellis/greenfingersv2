@@ -6,22 +6,26 @@ import Socials from "../components/Socials.astro";
   <h3>Want to chat?</h3>
   <p>Get in touch using the email below</p>
   <div class="email-container">
-    <img class="arrow-left" src="/images/arrow-left.svg" />
+    <img alt="Arrow left svg" class="arrow-left" src="/images/arrow-left.svg" />
     <a>greenfingersfilms@gmail.com</a>
-    <img class="underline" src="/images/underline.svg" />
-    <img class="arrow-right" src="/images/arrow-right.svg" />
+    <img alt="Underline svg" class="underline" src="/images/underline.svg" />
+    <img
+      alt="Arrow right svg"
+      class="arrow-right"
+      src="/images/arrow-right.svg"
+    />
   </div>
   <div class="copy-button-container">
-    <button>
+    <button aria-label="Copy email" type="button">
       <p>click to copy</p>
-      <img class="circle" src="/images/circle.svg" />
+      <img alt="Circle svg" class="circle" src="/images/circle.svg" />
     </button>
   </div>
   <Socials />
   <footer>
     <div>
       <p>Greenfingers Films {new Date().getFullYear()}</p>
-      <button class="to-top"
+      <button aria-label="Return to top of page" type="button" class="to-top"
         ><p>Back to Top</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
