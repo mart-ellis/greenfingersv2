@@ -22,7 +22,7 @@ import Socials from "../components/Socials.astro";
     <div>
       <p>Greenfingers Films {new Date().getFullYear()}</p>
       <button class="to-top"
-        >Back to Top
+        ><p>Back to Top</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -154,6 +154,15 @@ import Socials from "../components/Socials.astro";
     footer button svg {
       width: 1rem;
       margin-left: 0.2rem;
+    }
+
+    .to-top {
+      isolation: isolate;
+    }
+
+    .to-top p {
+      position: relative;
+      z-index: 50;
     }
   </style>
 
