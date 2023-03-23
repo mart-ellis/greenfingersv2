@@ -19,7 +19,7 @@ import Socials from "../components/Socials.astro";
         stroke="#1C462A"
         stroke-width="4"></path>
     </svg>
-    <a>greenfingersfilms@gmail.com</a>
+    <p class="email">greenfingersfilms@gmail.com</p>
     <svg
       class="underline"
       width="426"
@@ -48,8 +48,8 @@ import Socials from "../components/Socials.astro";
     </svg>
   </div>
   <div class="copy-button-container">
-    <button aria-label="Copy email" type="button">
-      <p>click to copy</p>
+    <button aria-label="Copy email" type="button" class="copy-button">
+      <p class="copy-text">click to copy</p>
       <svg
         class="circle"
         width="128"
@@ -103,13 +103,14 @@ import Socials from "../components/Socials.astro";
     h3 {
       font-family: var(--humane);
       font-size: clamp(10vw, 28vw, 200px);
+      letter-spacing: -0.1rem;
       text-transform: uppercase;
       text-align: center;
       line-height: 0.8;
     }
 
     p {
-      font-weight: 400;
+      font-weight: 500;
       font-size: 1rem;
       /* text-transform: uppercase; */
       opacity: 0.9;
@@ -143,7 +144,7 @@ import Socials from "../components/Socials.astro";
       bottom: -0.2rem;
     }
 
-    a {
+    .email {
       font-family: "Caveat", cursive;
       text-decoration: none;
       font-size: 1.7rem;
@@ -154,18 +155,26 @@ import Socials from "../components/Socials.astro";
       margin-top: 2rem;
     }
 
-    button {
+    .copy-button {
       all: unset;
       font-family: "Caveat", cursive;
       position: relative;
       cursor: pointer;
+      transition: scale 0.4s ease-in-out;
     }
 
-    button p {
+    .copy-button:hover {
+      scale: 1.1;
+    }
+    .copy-button:active {
+      scale: 0.9;
+    }
+
+    .copy-button p {
       font-size: 1.2rem;
     }
 
-    button svg {
+    .copy-button svg {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -188,7 +197,7 @@ import Socials from "../components/Socials.astro";
     }
 
     footer p {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
     }
 
     footer button {
@@ -205,11 +214,13 @@ import Socials from "../components/Socials.astro";
 
     .to-top {
       isolation: isolate;
+      display: flex;
     }
 
     .to-top p {
       position: relative;
       z-index: 50;
+      font-size: 0.6rem;
     }
   </style>
 
@@ -221,5 +232,29 @@ import Socials from "../components/Socials.astro";
         behavior: "smooth",
       });
     });
+
+    import JSConfetti from "js-confetti";
+
+    const jsConfetti = new JSConfetti();
+
+    const copyButton = document.querySelector(".copy-button");
+    const copyText = document.querySelector(".copy-text");
+    const emailText = document.querySelector(".email");
+
+    function copyEmail() {
+      navigator.clipboard.writeText("greenfingersfilms@gmail.com");
+      copyText.textContent = "copied!";
+      jsConfetti.addConfetti({
+        emojis: ["💌", "✉️"],
+        confettiRadius: 4,
+        confettiNumber: 100,
+      });
+      setTimeout(() => {
+        copyText.textContent = "click to copy";
+      }, 5000);
+    }
+
+    copyButton.addEventListener("click", copyEmail);
+    emailText.addEventListener("click", copyEmail);
   </script>
 </section>
