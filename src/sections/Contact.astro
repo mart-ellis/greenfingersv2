@@ -161,6 +161,7 @@ import Socials from "../components/Socials.astro";
       position: relative;
       cursor: pointer;
       transition: scale 0.4s ease-in-out;
+      isolation: isolate;
     }
 
     .copy-button:hover {
@@ -172,6 +173,7 @@ import Socials from "../components/Socials.astro";
 
     .copy-button p {
       font-size: 1.2rem;
+      z-index: 50;
     }
 
     .copy-button svg {
@@ -213,13 +215,10 @@ import Socials from "../components/Socials.astro";
     }
 
     .to-top {
-      isolation: isolate;
       display: flex;
     }
 
     .to-top p {
-      position: relative;
-      z-index: 50;
       font-size: 0.6rem;
     }
   </style>
@@ -247,7 +246,7 @@ import Socials from "../components/Socials.astro";
       jsConfetti.addConfetti({
         emojis: ["💌", "✉️"],
         confettiRadius: 4,
-        confettiNumber: 100,
+        confettiNumber: 70,
       });
       setTimeout(() => {
         copyText.textContent = "click to copy";
