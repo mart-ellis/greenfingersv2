@@ -14,7 +14,7 @@ const { slug } = Astro.params;
 const [{ title, year, img, link }] = films.filter((film) => film.slug === slug);
 ---
 
-<Layout title="">
+<Layout title={`${title} by Greenfingers Films`}>
   <section>
     <h1>{title}<span> {year}</span></h1>
     <div class="video-container">
