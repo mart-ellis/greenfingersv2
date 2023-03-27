@@ -1,34 +1,97 @@
 ---
 ---
 
-<h2>
-  <slot />
-</h2>
+<div class="word-split-parent">
+  <h2 class="word-split">
+    <slot />
+  </h2>
+</div>
 
 <style>
+  .word-split {
+    font-kerning: none;
+  }
+
+  .word-split-parent {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 7rem;
+  }
+
   h2 {
     font-family: var(--humane);
     white-space: nowrap;
     font-size: 7rem;
+    line-height: 100%;
     text-transform: uppercase;
-    overflow: hidden;
   }
 
   @media (min-width: 768px) {
+    .word-split-parent {
+      height: 8rem;
+    }
     h2 {
       font-size: 8rem;
     }
   }
 
   @media (min-width: 1024px) {
+    .word-split-parent {
+      height: 10rem;
+    }
     h2 {
       font-size: 10rem;
     }
   }
 
   @media (min-width: 1280px) {
+    .word-split-parent {
+      height: 11rem;
+    }
     h2 {
       font-size: 11rem;
     }
   }
 </style>
+
+<script>
+  import SplitType from "split-type";
+  import { gsap } from "gsap";
+
+  new SplitType(".word-split");
+
+  const items = document.querySelectorAll(".word-split-parent");
+
+  items.forEach((item) => {
+    const clone = item.querySelector(".word-split").cloneNode(true);
+    item.appendChild(clone);
+    let anim = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        start: "top 90%",
+        toggleActions: "play none reverse reset",
+      },
+    });
+    anim.to(item.querySelectorAll(".word-split .char"), {
+      y: "-100%",
+      ease: "Power4.easeInOut",
+      duration: 0.3,
+      stagger: 0.03,
+    });
+    anim.to(
+      item.querySelectorAll(".word-split:nth-child(1) .char"),
+      {
+        opacity: 0,
+        ease: "Power4.easeInOut",
+        duration: 0.3,
+        stagger: 0.03,
+      },
+      "<"
+    );
+    anim.set(item.querySelectorAll(".word-split .char"), {
+      y: 0,
+      opacity: 1,
+    });
+  });
+</script>
