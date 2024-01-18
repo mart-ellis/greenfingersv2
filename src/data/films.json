@@ -4,6 +4,7 @@
     "year": 2023,
     "img": "",
     "slug": "anti-chew",
+    "video": "antichew_preview.mov",
     "link": "https://player.vimeo.com/video/821939219?h=41c030df08&byline=0&portrait=0"
   },
   {
@@ -11,6 +12,7 @@
     "year": 2022,
     "img": "",
     "slug": "nanny-neigh-neigh",
+    "video": "neigh_preview.mov",
     "link": "https://player.vimeo.com/video/759230573?h=8924de8ba3&byline=0&portrait=0"
   },
   {
@@ -18,6 +20,7 @@
     "year": 2021,
     "img": "",
     "slug": "total-eclipse-of-the-heart",
+    "video": "teoth_preview.mov",
     "link": "https://player.vimeo.com/video/569923051?h=b3dd2dca2d&byline=0&portrait=0"
   },
   {
@@ -25,6 +28,7 @@
     "year": 2021,
     "img": "",
     "slug": "greenfingers",
+    "video": "gf_preview.mov",
     "link": "https://player.vimeo.com/video/401865781?h=19673a22a7&byline=0&portrait=0"
   }
 ]

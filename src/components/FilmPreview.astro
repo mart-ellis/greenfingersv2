@@ -1,24 +1,29 @@
 ---
 import { Image } from "@astrojs/image/components";
-const { title, year, img, slug } = Astro.props.film;
+const { title, year, img, slug, video } = Astro.props.film;
 const index = Astro.props.index;
 ---
 
 <div class="film-preview-container">
   <a href={`/films/${slug}`}>
     <div class="image-wrapper">
-      <div class="focus"></div>
-      <div class="focus"></div>
-      <div class="focus"></div>
-      <div class="focus"></div>
-      <Image
+      <!-- <Image
         src={`/images/previews/${slug}.jpg`}
         alt={`Still from ${title} by Greenfingers Films`}
         format="webp"
         width={475}
         height={542}
         class="film-preview"
-      />
+      /> -->
+      <div class="video-wrapper">
+        <video playsinline autoplay muted loop style="max-width: 100%;">
+          <source
+            src={`/videos/${video}`}
+            src="/videos/antichew_preview.mov"
+            type="video/mp4"
+          />
+        </video>
+      </div>
     </div>
     <div class="details">
       <p class="index">0{index + 1}</p>
@@ -32,45 +37,18 @@ const index = Astro.props.index;
     position: relative;
   }
 
+  .video-wrapper {
+    max-width: 100%;
+    filter: brightness(0.8);
+  }
+
+  video {
+    border-radius: 6px;
+  }
+
   img {
     max-width: 100%;
-    height: auto;
-  }
-
-  .focus {
-    --size: 1rem;
-    width: var(--size);
-    height: var(--size);
-    border-color: #a4a4a4;
-    mix-blend-mode: difference;
-    opacity: 0.7;
-    position: absolute;
-    z-index: 60;
-  }
-
-  .focus:nth-child(1) {
-    top: 1rem;
-    left: 1rem;
-    border-top: 1px solid;
-    border-left: 1px solid;
-  }
-  .focus:nth-child(2) {
-    top: 1rem;
-    right: 1rem;
-    border-top: 1px solid;
-    border-right: 1px solid;
-  }
-  .focus:nth-child(3) {
-    bottom: 1rem;
-    right: 1rem;
-    border-bottom: 1px solid;
-    border-right: 1px solid;
-  }
-  .focus:nth-child(4) {
-    bottom: 1rem;
-    left: 1rem;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
+    aspect-ratio: 16/9;
   }
 
   .details {
@@ -90,10 +68,10 @@ const index = Astro.props.index;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     line-height: 0.8;
-    font-weight: 900;
+    font-weight: 500;
     opacity: 0.9;
   }
 
@@ -105,31 +83,10 @@ const index = Astro.props.index;
   }
   @media (min-width: 1280px) {
     .title {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 500;
     }
   }
 </style>
 
-<script>
-  import { scroll, animate } from "motion";
-
-  const previews = document.querySelectorAll(".film-preview");
-
-  previews.forEach((preview) => {
-    scroll(
-      animate(preview, {
-        filter: [
-          "grayscale(1)",
-          "grayscale(0)",
-          "grayscale(0)",
-          "grayscale(1)",
-        ],
-      }),
-      {
-        target: preview,
-        offset: ["start 100%", "center 60%", "center 20%", "end 20%"],
-      }
-    );
-  });
-</script>
+<script></script>

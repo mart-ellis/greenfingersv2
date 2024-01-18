@@ -20,7 +20,7 @@ import films from "../data/films.json";
   div {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 2rem;
     margin-top: 1rem;
   }
 
@@ -41,7 +41,7 @@ import films from "../data/films.json";
   @media (min-width: 1024px) {
     div {
       gap: 1rem;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -59,19 +59,28 @@ import films from "../data/films.json";
   gsap.registerPlugin(ScrollTrigger);
 
   const cards = document.querySelectorAll(".film-preview-container");
+  const details = document.querySelectorAll(".details");
   cards.forEach((card) => {
-    const cardWidth = card.offsetWidth;
-    const distanceToEdge = card.getBoundingClientRect().left;
-    const rotate = gsap.utils.random(-9, 9);
-
     gsap.from(card, {
-      x: -(distanceToEdge + cardWidth),
-      rotate: rotate,
+      filter: "grayscale(1)",
+      opacity: 0,
       scrollTrigger: {
         trigger: card,
         start: "top bottom",
         end: "center center",
         scrub: 1,
+      },
+    });
+  });
+  details.forEach((item) => {
+    gsap.from(item, {
+      y: 40,
+      opacity: 0,
+      duration: 2,
+      ease: "elastic.out(1,0.2)",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 95%",
       },
     });
   });
