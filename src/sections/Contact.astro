@@ -4,13 +4,15 @@ import Socials from "../components/Socials.astro";
 
 <section id="contact">
   <h3>Get in touch</h3>
-  <div class="socials_container">
-    <h4>Socials</h4>
-    <ul>
-      <li>
-        <a href="https://www.instagram.com/greenfingers_film/" target="_blank"
-          >Instagram</a
-        >
+  <div class="mobile-footer">
+    <div class="socials_container">
+      <h4>Socials</h4>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/greenfingers_film/" target="_blank"
+            >Instagram</a
+          >
+        </li>
         <li>
           <a href="https://vimeo.com/user2817712" target="_blank">Vimeo</a>
         </li>
@@ -26,160 +28,276 @@ import Socials from "../components/Socials.astro";
             target="_blank">Tiktok</a
           >
         </li>
-      </li>
-    </ul>
-
-    <footer>
-      <div>
-        <p>Greenfingers Films {new Date().getFullYear()}</p>
-        <button aria-label="Return to top of page" type="button" class="to-top"
-          ><p>Back to Top</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            ><path fill="none" d="M0 0h24v24H0z"></path><path
-              d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"
-            ></path></svg
-          >
-        </button>
-      </div>
-    </footer>
-
-    <style>
-      section {
-        text-align: center;
-        height: var(--contact-height);
-        padding-top: 100px;
-        background-color: var(--mint);
-        color: var(--dark-green);
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: -10;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-      }
-
-      h3 {
-        font-family: var(--humane);
-        font-size: clamp(10vw, 30vw, 380px);
-        letter-spacing: -0.05rem;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 0.8;
-      }
-
-      p {
-        font-weight: 500;
-        font-size: 1rem;
-        /* text-transform: uppercase; */
-        opacity: 0.9;
-      }
-
-      .socials_container {
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .socials_container h4 {
-        font-family: var(--humane);
-        text-transform: uppercase;
-        font-weight: 400;
-        opacity: 60%;
-        font-size: 1.4rem;
-      }
-
-      .socials_container ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .socials_container ul li {
-        font-family: var(--humane);
-        text-transform: uppercase;
-        font-size: 3rem;
-        opacity: 0.9;
-      }
-
-      footer {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        padding: 0 var(--section-padding) 0.6rem;
-      }
-
-      footer div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        opacity: 0.6;
-      }
-
-      footer p {
-        font-size: 0.6rem;
-      }
-
-      footer button {
-        all: unset;
-        font-size: 0.7rem;
-        display: flex;
-        align-items: center;
-      }
-
-      footer button svg {
-        width: 1rem;
-        margin-left: 0.2rem;
-      }
-
-      .to-top {
-        display: flex;
-      }
-
-      .to-top p {
-        font-size: 0.6rem;
-      }
-    </style>
-
-    <script>
-      const toTop = document.querySelector(".to-top");
-      toTop.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-
-      import JSConfetti from "js-confetti";
-
-      const jsConfetti = new JSConfetti();
-
-      const copyButton = document.querySelector(".copy-button");
-      const copyText = document.querySelector(".copy-text");
-      const emailText = document.querySelector(".email");
-
-      function copyEmail() {
-        navigator.clipboard.writeText("greenfingersfilms@gmail.com");
-        copyText.textContent = "copied!";
-        jsConfetti.addConfetti({
-          emojis: ["💌", "✉️"],
-          confettiRadius: 4,
-          confettiNumber: 70,
-        });
-        setTimeout(() => {
-          copyText.textContent = "click to copy";
-        }, 5000);
-      }
-
-      copyButton.addEventListener("click", copyEmail);
-      emailText.addEventListener("click", copyEmail);
-    </script>
+      </ul>
+    </div>
+    <div class="contact_button_container">
+      <button class="copy-button">
+        <p>greenfingersfilms@gmail.com</p>
+        <p class="copy-text">click to copy</p>
+      </button>
+    </div>
   </div>
+  <div class="desktop-footer">
+    <div class="socials_container">
+      <h4>Socials</h4>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/greenfingers_film/" target="_blank"
+            >Instagram</a
+          >
+        </li>
+        <li>
+          <a href="https://vimeo.com/user2817712" target="_blank">Vimeo</a>
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/@greenfingersfilms5979"
+            target="_blank">Youtube</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.tiktok.com/@greenfingersfilm?ug_source=op.auth&ug_term=Linktr.ee&utm_source=awyc6vc625ejxp86&utm_campaign=tt4d_profile_link&_r=1"
+            target="_blank">Tiktok</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="desktop_email_container">
+      <h4>Email</h4>
+      <ul>
+        <li>
+          <button class="copy-button">
+            <p>greenfingersfilms@gmail.com</p>
+            <p class="copy-text">(click to copy)</p>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+      <p>Greenfingers Films {new Date().getFullYear()}</p>
+      <button aria-label="Return to top of page" type="button" class="to-top"
+        ><p>Back to Top</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          ><path fill="none" d="M0 0h24v24H0z"></path><path
+            d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"
+          ></path></svg
+        >
+      </button>
+  </footer>
 </section>
+
+<style>
+  section {
+    text-align: center;
+    height: 100vh;
+    background-color: var(--mint);
+    color: var(--dark-green);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -10;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-family: var(--humane);
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    font-size: clamp(10vw, 30vw, 270px);
+    letter-spacing: -0.05rem;
+    line-height: 0.8;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .mobile-footer {
+    width: 100%;
+  }
+
+  .desktop-footer {
+    display: none;
+  }
+
+  .socials_container,
+  .desktop_email_container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .socials_container h4,
+  .desktop_email_container h4 {
+    font-weight: 400;
+    opacity: 60%;
+    font-size: 1.4rem;
+  }
+
+  .socials_container ul,
+  .desktop_email_container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .socials_container ul li,
+  .desktop_email_container ul li {
+    font-size: 3rem;
+    opacity: 0.9;
+  }
+
+  .contact_button_container {
+    margin-top: 2rem;
+    width: 100%;
+    -webkit-box-shadow: -4px 4px 0px 0px var(--black);
+      -moz-box-shadow: -4px 4px 0px 0px var(--black);
+      box-shadow: -4px 4px 0px 0px var(--black);
+  }
+
+  .copy-button {
+    width: 100%;
+    padding: 0.4rem 1.2rem;
+    background-color: var(--dark-green);
+    color: var(--mint);
+    font-family: var(--humane);
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .contact_button_container button p {
+    font-size: 2.2rem;
+  }
+
+  .contact_button_container button p:last-child {
+    opacity: 0.6;
+  }
+
+  footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2rem;
+    opacity: 0.5;
+  }
+
+  footer p {
+    font-family: var(--sans);
+    text-transform: none;
+    font-size: 0.6rem;
+  }
+
+  footer button {
+    all: unset;
+    display: flex;
+    align-items: center;
+  }
+
+  footer button svg {
+    width: 1rem;
+    margin-left: 0.2rem;
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      margin-top: 4rem;
+    }
+
+    .mobile-footer {
+      display: none;
+    }
+
+    .desktop-footer {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.4rem 2rem;
+      background-color: var(--dark-green);
+      color: white;
+      width: 90%;
+      -webkit-box-shadow: -8px 8px 0px 0px var(--black);
+      -moz-box-shadow: -8px 8px 0px 0px var(--black);
+      box-shadow: -8px 8px 0px 0px var(--black);
+    }
+
+    .desktop-footer .socials_container, .desktop-footer .desktop_email_container {
+      gap 0;
+    }
+
+    .desktop-footer .socials_container ul {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .desktop-footer h4 {
+      font-size: 1.2rem;
+      letter-spacing: 0.04rem;
+      font-weight: 200;
+    }
+
+    .copy-button {
+      padding: 0;
+    }
+
+    .copy-button p {
+      font-size: 3rem;
+      color: white;
+    }
+
+    .copy-text {
+      margin-left: 4px;
+      opacity: 0.5;
+    }
+  }
+
+</style>
+
+<script>
+  const toTop = document.querySelector(".to-top");
+  toTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  import JSConfetti from "js-confetti";
+
+  const jsConfetti = new JSConfetti();
+
+  const copyButton = document.querySelectorAll(".copy-button");
+  const copyText = document.querySelectorAll(".copy-text");
+
+  function copyEmail() {
+    navigator.clipboard.writeText("greenfingersfilms@gmail.com");
+    copyText.forEach((item) => (item.textContent = "copied!"));
+    jsConfetti.addConfetti({
+      emojis: ["💌", "✉️"],
+      confettiRadius: 4,
+      confettiNumber: 70,
+    });
+    setTimeout(() => {
+      copyText.forEach((item) => (item.textContent = "click to copy"));
+    }, 2000);
+  }
+
+  copyButton.forEach((button) => button.addEventListener("click", copyEmail));
+</script>
