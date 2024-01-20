@@ -69,8 +69,8 @@ import Socials from "../components/Socials.astro";
         <li>
           <button class="copy-button">
             <p>greenfingersfilms@gmail.com</p>
-            <p class="copy-text">(click to copy)</p>
-            <p class="copy-text-placeholder">(click to copy)</p>
+            <p class="copy-text">click to copy</p>
+            <p class="copy-text-placeholder">click to copy</p>
           </button>
         </li>
       </ul>
@@ -107,6 +107,7 @@ import Socials from "../components/Socials.astro";
     display: flex;
     flex-direction: column;
     align-items: start;
+    justify-content: center;
     font-family: var(--humane);
     text-transform: uppercase;
   }
@@ -234,6 +235,7 @@ import Socials from "../components/Socials.astro";
       background-color: var(--dark-green);
       color: white;
       width: 90%;
+      border-radius: 4px;
       -webkit-box-shadow: -8px 8px 0px 0px var(--black);
       -moz-box-shadow: -8px 8px 0px 0px var(--black);
       box-shadow: -8px 8px 0px 0px var(--black);
@@ -307,7 +309,7 @@ import Socials from "../components/Socials.astro";
       confettiNumber: 70,
     });
     setTimeout(() => {
-      copyText.forEach((item) => (item.textContent = "(click to copy)"));
+      copyText.forEach((item) => (item.textContent = "click to copy"));
     }, 2000);
   }
 

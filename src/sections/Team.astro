@@ -8,10 +8,11 @@ import people from "../data/people.json";
 <section id="team">
   <Title>Meet the Fingers</Title>
   <div class="subtitle">
-    <p>
+    <p class="team_intro" id="splitText">
       Greenfingers is an internationally award-winning film collective based in
-      Manchester. Meet our members below.
+      Manchester.
     </p>
+    <p class="meet">Meet our members below.</p>
   </div>
   <div class="notif">
     <svg
@@ -39,12 +40,18 @@ import people from "../data/people.json";
     border-radius: 0 0 1rem 1rem;
   }
 
-  p {
-    opacity: 0.7;
+  .team_intro {
+    margin: 3rem 0 1rem;
     letter-spacing: var(--tracking-tight);
-    font-size: 0.875rem;
+    font-size: 1.8rem;
     font-weight: 300;
     max-width: 80%;
+  }
+
+  .meet {
+    font-weight: 100;
+    margin-bottom: 4rem;
+    opacity: 0.6;
   }
 
   svg path {
@@ -81,27 +88,47 @@ import people from "../data/people.json";
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 1.8rem;
     }
+
+    .team_intro {
+      max-width: 75%;
+    }
   }
 
   @media (min-width: 1024px) {
-    .subtitle {
-      font-size: 1rem;
-      display: flex;
-      justify-content: flex-end;
-      max-width: 90vw;
-    }
-
-    .subtitle p {
-      margin-top: -3rem;
-      max-width: 40%;
-      text-align: right;
-      font-size: 1rem;
-      font-weight: 200;
-    }
-
     .team-grid {
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 2.8rem;
     }
+
+    .team_intro {
+      font-size: 2.4rem;
+      max-width: 60%;
+    }
+
+    .meet {
+      font-size: 1.4rem;
+    }
   }
 </style>
+
+<script>
+  import SplitType from "split-type";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const text = new SplitType("#splitText");
+
+  text.lines.forEach((line) => {
+    gsap.from(line.querySelectorAll(".word"), {
+      opacity: 0.2,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: line,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  });
+</script>
