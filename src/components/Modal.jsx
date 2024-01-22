@@ -34,21 +34,22 @@ export default function Modal({ name, picture, bio, children }) {
             inset: 0,
             display: "grid",
             placeItems: "center",
-            background: "rgba(0,0,0,0.7)",
+            background: "rgba(227, 255, 237, 0.8)",
             padding: "1rem 0",
           }}
         >
           <Dialog.Panel
             style={{
               width: "100%",
-              maxWidth: "400px",
-              borderRadius: ".5rem",
-              background: "var(--black)",
+              maxWidth: "360px",
+              borderRadius: "4px",
+              background: "var(--dark-green)",
               text: "var(--mint)",
               padding: ".9rem",
-              fontSize: ".8rem",
-              lineHeight: 1.4,
+              fontSize: ".75rem",
+              lineHeight: 1.2,
               textAlign: "justify",
+              boxShadow: "-8px 8px 0px 0px var(--black)",
             }}
           >
             <div
@@ -63,7 +64,7 @@ export default function Modal({ name, picture, bio, children }) {
             </div>
             <Dialog.Title
               style={{
-                fontSize: "4rem",
+                fontSize: "2.4rem",
                 textTransform: "uppercase",
                 fontFamily: "var(--humane)",
                 marginTop: "1rem",
