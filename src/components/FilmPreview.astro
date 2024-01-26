@@ -7,14 +7,6 @@ const index = Astro.props.index;
 <div class="film-preview-container">
   <a href={`/films/${slug}`}>
     <div class="image-wrapper">
-      <!-- <Image
-        src={`/images/previews/${slug}.jpg`}
-        alt={`Still from ${title} by Greenfingers Films`}
-        format="webp"
-        width={475}
-        height={542}
-        class="film-preview"
-      /> -->
       <div class="video-wrapper">
         <video playsinline autoplay muted loop style="max-width: 100%;">
           <source
@@ -33,6 +25,10 @@ const index = Astro.props.index;
 </div>
 
 <style>
+  .film-preview-container {
+    width: 100%;
+  }
+
   .image-wrapper {
     position: relative;
   }
@@ -46,10 +42,10 @@ const index = Astro.props.index;
     border-radius: 6px;
   }
 
-  img {
+  /* img {
     max-width: 100%;
     aspect-ratio: 16/9;
-  }
+  } */
 
   .details {
     display: flex;
@@ -81,7 +77,20 @@ const index = Astro.props.index;
       font-weight: 700;
     }
   }
+
+  @media (min-width: 1024px) {
+    video {
+      width: 45vw;
+    }
+    .film-preview-container {
+      width: fit-content;
+    }
+  }
+
   @media (min-width: 1280px) {
+    video {
+      width: unset;
+    }
     .title {
       font-size: 1.6rem;
       font-weight: 500;
