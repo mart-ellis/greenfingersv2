@@ -1,17 +1,17 @@
 ---
 import { Image, Picture } from "@astrojs/image/components";
 const nums = Astro.props.nums;
+const images = import.meta.glob(
+  "/src/assets/images/awards/*.{jpeg,jpg,png,gif}"
+);
 ---
 
 <div>
   {
     nums.map((num) => (
       <Image
-        src={`/images/awards/${num}.png`}
+        src={images[`/src/assets/images/awards/${num}.png`]()}
         alt="Greenfingers film award"
-        format="webp"
-        width={300}
-        height={200}
       />
     ))
   }
@@ -20,15 +20,16 @@ const nums = Astro.props.nums;
 <style>
   div {
     margin-top: 8rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem 0;
     width: 100%;
-    gap: 8vw;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%;
+    place-items: center;
   }
 
   img {
-    width: 16vw;
+    width: 15vw;
     opacity: 0.4;
     max-width: 100px;
   }

@@ -5,7 +5,9 @@
     "img": "",
     "slug": "anti-chew",
     "video": "antichew_preview.mov",
-    "link": "https://player.vimeo.com/video/821939219?h=41c030df08&byline=0&portrait=0"
+    "link": "https://player.vimeo.com/video/821939219?h=41c030df08&byline=0&portrait=0",
+    "preview": false,
+    "previewDesc": ""
   },
   {
     "title": "Nanny Neigh Neigh",
@@ -13,7 +15,9 @@
     "img": "",
     "slug": "nanny-neigh-neigh",
     "video": "neigh_preview.mov",
-    "link": "https://player.vimeo.com/video/759230573?h=8924de8ba3&byline=0&portrait=0"
+    "link": "https://player.vimeo.com/video/759230573?h=8924de8ba3&byline=0&portrait=0",
+    "preview": false,
+    "previewDesc": ""
   },
   {
     "title": "Total Eclipse of the Heart",
@@ -21,7 +25,9 @@
     "img": "",
     "slug": "total-eclipse-of-the-heart",
     "video": "teoth_preview.mov",
-    "link": "https://player.vimeo.com/video/569923051?h=b3dd2dca2d&byline=0&portrait=0"
+    "link": "https://player.vimeo.com/video/569923051?h=b3dd2dca2d&byline=0&portrait=0",
+    "preview": false,
+    "previewDesc": ""
   },
   {
     "title": "Greenfingers",
@@ -29,6 +35,28 @@
     "img": "",
     "slug": "greenfingers",
     "video": "gf_preview.mov",
-    "link": "https://player.vimeo.com/video/401865781?h=19673a22a7&byline=0&portrait=0"
+    "link": "https://player.vimeo.com/video/401865781?h=19673a22a7&byline=0&portrait=0",
+    "preview": false,
+    "previewDesc": ""
+  },
+  {
+    "title": "Bin Day",
+    "year": 2024,
+    "img": "/images/previews/bin-day.jpg",
+    "slug": "bin-day",
+    "video": "",
+    "link": "",
+    "preview": true,
+    "previewDesc": "Bin Day is a surreal comedy about despondent graphic designer, Sara. After being called into a meeting with her volatile boss and sycophant supervisor, she is told that the business has a new optimisation app. It's suggestion for Sara's future at the company? Promote her to the role of The Office Bin. What a load of old rubbish."
+  },
+  {
+    "title": "Brasslit",
+    "year": 2024,
+    "img": "/images/previews/brasslit.jpg",
+    "slug": "brasslit",
+    "video": "",
+    "link": "",
+    "preview": true,
+    "previewDesc": "A sleep-deprived Kurt becomes hellbent on locating the mysterious trumpet noise that's keeping him up at night. But will what he discovers be more than meets the ear?"
   }
 ]

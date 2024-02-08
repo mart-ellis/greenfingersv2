@@ -1,21 +1,31 @@
 ---
 import { Image } from "@astrojs/image/components";
-const { title, year, img, slug, video } = Astro.props.film;
+const { title, year, img, slug, video, preview } = Astro.props.film;
 const index = Astro.props.index;
 ---
 
 <div class="film-preview-container">
   <a href={`/films/${slug}`}>
-    <div class="image-wrapper">
-      <div class="video-wrapper">
-        <video playsinline autoplay muted loop style="max-width: 100%;">
-          <source
-            src={`/videos/${video}`}
-            src="/videos/antichew_preview.mov"
-            type="video/mp4"
-          />
-        </video>
-      </div>
+    <div class="media-wrapper">
+      {
+        preview ? (
+          <div class="preview-wrapper">
+            <Image
+              src={img}
+              alt={`Coming soon ${title}`}
+              width={1920}
+              height={1080}
+            />
+            <h2>Coming soon</h2>
+          </div>
+        ) : (
+          <div class="video-wrapper">
+            <video playsinline autoplay muted loop style="max-width: 100%;">
+              <source src={`/videos/${video}`} type="video/mp4" />
+            </video>
+          </div>
+        )
+      }
     </div>
     <div class="details">
       <p class="index">0{index + 1}</p>
@@ -29,8 +39,27 @@ const index = Astro.props.index;
     width: 100%;
   }
 
-  .image-wrapper {
+  .media-wrapper {
     position: relative;
+  }
+
+  .preview-wrapper img {
+    filter: brightness(0.5);
+  }
+
+  .preview-wrapper {
+    position: relative;
+  }
+
+  .preview-wrapper h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--humane);
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 0;
   }
 
   .video-wrapper {
@@ -38,7 +67,12 @@ const index = Astro.props.index;
     filter: brightness(0.8);
   }
 
-  video {
+  .preview-wrapper img {
+    max-width: 640px;
+  }
+
+  video,
+  img {
     border-radius: 6px;
   }
 
@@ -79,7 +113,8 @@ const index = Astro.props.index;
   }
 
   @media (min-width: 1024px) {
-    video {
+    video,
+    img {
       width: 45vw;
     }
     .film-preview-container {
@@ -88,7 +123,8 @@ const index = Astro.props.index;
   }
 
   @media (min-width: 1280px) {
-    video {
+    video,
+    img {
       width: unset;
     }
     .title {
