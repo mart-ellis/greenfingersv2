@@ -3,7 +3,7 @@
 ---
 
 <section id="home">
-  <div class="reveal"></div>
+  <!-- <div class="reveal"></div> -->
   <div class="video-wrapper">
     <video playsinline autoplay muted loop>
       <source src="/videos/neigh.mp4" type="video/mp4" />
@@ -296,31 +296,31 @@
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  // import { gsap } from "gsap";
+  // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
-  const pageWidth = window.innerWidth;
-  const numOfCols = 8;
-  const sizeOfCols = pageWidth / numOfCols;
-  const container = document.querySelector(".reveal");
-  for (var i = 0; i < numOfCols; i++) {
-    const column = document.createElement("div");
-    column.classList.add("column");
-    column.style.width = `${sizeOfCols}px`;
-    column.style.backgroundColor = "var(--dark-green)";
-    container.appendChild(column);
-  }
+  // const pageWidth = window.innerWidth;
+  // const numOfCols = 8;
+  // const sizeOfCols = pageWidth / numOfCols;
+  // const container = document.querySelector(".reveal");
+  // for (var i = 0; i < numOfCols; i++) {
+  //   const column = document.createElement("div");
+  //   column.classList.add("column");
+  //   column.style.width = `${sizeOfCols}px`;
+  //   column.style.backgroundColor = "var(--dark-green)";
+  //   container.appendChild(column);
+  // }
 
-  gsap.set(".reveal", {
-    background: "none",
-  });
+  // gsap.set(".reveal", {
+  //   background: "none",
+  // });
 
-  gsap.to(".column", {
-    height: 0,
-    stagger: 0.05,
-    duration: 0.6,
-    delay: 1,
-  });
+  // gsap.to(".column", {
+  //   height: 0,
+  //   stagger: 0.05,
+  //   duration: 0.6,
+  //   delay: 1,
+  // });
 </script>

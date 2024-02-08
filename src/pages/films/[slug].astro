@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import films from "../../data/films.json";
 import Layout from "../../layouts/Layout.astro";
 
@@ -18,11 +19,19 @@ const [{ title, year, img, link, preview, previewDesc }] = films.filter(
 
 <Layout title={`${title} by Greenfingers Films`}>
   <section>
-    <h1>{title}<span>{preview ? " SOON" : year}</span></h1>
+    <h1>{title}<span>{preview ? " COMING SOON" : year}</span></h1>
     {
       preview ? (
-        <div class="preview-text">
-          <p>{previewDesc}</p>
+        <div class="preview">
+          <Image
+            src={img}
+            alt={`Coming soon ${title}`}
+            width={1920}
+            height={1080}
+          />
+          <div class="preview-text">
+            <p>{previewDesc}</p>
+          </div>
         </div>
       ) : (
         <div class="video-container">
@@ -68,15 +77,20 @@ const [{ title, year, img, link, preview, previewDesc }] = films.filter(
   }
 
   .preview-text {
-    margin-top: 6vh;
+    margin-top: 2rem;
     font-family: var(--sans);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-style: italic;
     letter-spacing: -0.5px;
     line-height: 150%;
     font-weight: 300;
-    max-width: min(90%, 600px);
+    max-width: min(90%, 700px);
     text-align: justify;
+  }
+
+  .preview img {
+    max-width: clamp(100px, 100%, 650px);
+    margin-top: 1rem;
   }
 </style>
 <script src="https://player.vimeo.com/api/player.js"></script>
