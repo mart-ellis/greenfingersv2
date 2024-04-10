@@ -18,36 +18,143 @@ const [{ title, year, img, link, preview, previewDesc }] = films.filter(
 ---
 
 <Layout title={`${title} by Greenfingers Films`}>
-  <section>
-    <h1>{title}<span>{preview ? " COMING SOON" : year}</span></h1>
-    {
-      preview ? (
-        <div class="preview">
-          <Image
-            src={img}
-            alt={`Coming soon ${title}`}
-            width={1920}
-            height={1080}
-          />
-          <div class="preview-text">
-            <p>{previewDesc}</p>
+  {
+    slug === "stag" ? (
+      <section class="stag-section">
+        <h1>
+          {title}
+          <span>{preview ? " COMING SOON" : year}</span>
+        </h1>
+        <div class="stag-page-layout">
+          <div class="stag-poster">
+            <div class="stag-img">
+              <Image
+                src={"/public/images/previews/stag_poster.jpg"}
+                alt={`Coming soon ${title}`}
+                width={3456}
+                height={4432}
+              />
+            </div>
+          </div>
+          <div class="stag-details">
+            <div style={{ "margin-top": "2rem", "font-style": "italic" }}>
+              <h3 style={{ "margin-bottom": "1rem", "font-style": "normal" }}>
+                Cast
+              </h3>
+              <ul>
+                <li>Craig: Alex Zolghadriha</li>
+                <li>Jack : Alistair Goldie</li>
+                <li>Fit Kitty : Lucy Hilton-Jones</li>
+              </ul>
+              <h3 style={{ margin: "1rem 0", "font-style": "normal" }}>Crew</h3>
+              <ul>
+                <li>
+                  Writers: Lucy Hilton-Jones, Alex Zolghadriha & Alistair Goldie
+                </li>
+                <li>Directors: Elliot Taylor & Lucy Hilton-Jones</li>
+                <li>DOP: Dann Cooper</li>
+                <li>Editor: Katie Walters </li>
+                <li>Sound Design: Dissolve Audio </li>
+                <li>BTS Photographer: Kara Hakanson</li>
+                <li>Poster Design: Kara Hakanson</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stag-bts">
+            <h1>Sneak Preview</h1>
+            <div class="stag-pic-grid">
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Spain02.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="2048"
+                width="3089"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Spain04.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="2048"
+                width="3089"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Spain08.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="2048"
+                width="3089"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Stag01.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="2048"
+                width="3089"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Stag02.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="3089"
+                width="2048"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Stag03.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="3089"
+                width="2048"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Stag04.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="3089"
+                width="2048"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Stag07.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="3089"
+                width="2048"
+              />
+              <Image
+                src={"/images/stag-bts/KHPHOTO_Stag08.jpg"}
+                alt={`Stag Behind the Scenes`}
+                height="3089"
+                width="2048"
+              />
+            </div>
           </div>
         </div>
-      ) : (
-        <div class="video-container">
-          <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe
-              src={link}
-              style="position:absolute;top:0;left:0;width:100%;height:100%;"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
+      </section>
+    ) : (
+      <section>
+        <h1>
+          {title}
+          <span>{preview ? " COMING SOON" : year}</span>
+        </h1>
+        {preview ? (
+          <div class="preview">
+            <Image
+              src={img}
+              alt={`Coming soon ${title}`}
+              width={1920}
+              height={1080}
             />
+            <div class="preview-text">
+              <p>{previewDesc}</p>
+            </div>
           </div>
-        </div>
-      )
-    }
-  </section>
+        ) : (
+          <div class="video-container">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe
+                src={link}
+                style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+              />
+            </div>
+          </div>
+        )}
+      </section>
+    )
+  }
 </Layout>
 
 <style>
@@ -91,6 +198,83 @@ const [{ title, year, img, link, preview, previewDesc }] = films.filter(
   .preview img {
     max-width: clamp(100px, 100%, 650px);
     margin-top: 1rem;
+  }
+
+  /* temp stag styles */
+
+  .stag-section {
+    max-height: unset;
+    height: unset;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+  }
+
+  .stag-poster {
+    grid-column: 1/3;
+  }
+
+  .stag-details {
+    grid-column: 1/3;
+  }
+
+  .stag-details ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.9rem;
+  }
+
+  .stag-page-layout {
+    display: grid;
+    margin-top: 2rem;
+  }
+  .stag-img {
+    margin-top: 1rem;
+    max-width: 450px;
+  }
+
+  .stag-bts {
+    margin-top: 6rem;
+    grid-column: 1/3;
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  .stag-pic-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0 4rem 0 0;
+  }
+
+  @media (min-width: 1280px) {
+    .stag-page-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .stag-details,
+    .stag-poster {
+      grid-column: span 1;
+    }
+
+    .stag-details {
+      margin-left: -4rem;
+    }
+
+    .stag-bts {
+      margin-top: -4rem;
+    }
+
+    .stag-bts h1 {
+      text-align: right;
+    }
+
+    .stag-img {
+      margin-top: 1rem;
+      max-width: 400px;
+    }
   }
 </style>
 <script src="https://player.vimeo.com/api/player.js"></script>
